@@ -1,0 +1,147 @@
+server:
+  port: 8762
+  context-path : /api
+  session:
+    timeout: 36000
+
+framework:
+  amqp:
+    enabled: true
+    queues:
+      - name: "queue.order.update"
+        durable: false
+spring:
+  thymeleaf:
+         cache: false
+         mode: LEGACYHTML5
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: graduation
+    password: guest
+  #REDIS
+  redis:
+    database: 15
+    host: localhost
+    port: 6379
+#  rabbitmq:
+#      addresses: 192.168.0.108:5672
+#      username: admin
+#      password: adminAbc1234
+#      virtual-host: "/"
+#      publisher-confirms: true
+#  jackson:
+#    date-format: "yyyy-MM-dd HH:mm:ss"
+#    joda-date-time-format: "yyyy-MM-dd HH:mm:ss"
+#    time-zone: "GMT+8"
+#  freemarker:
+#    cache: true
+#    charset: "UTF-8"
+#    content-type: "text/html"
+#    enabled: true
+#    suffix: ".html"
+#    template-loader-path: "classpath:/templates/"
+#    request-context-attribute: "request"
+#    expose-request-attributes: true
+#    expose-spring-macro-helpers: true
+
+  http:
+    # MULTIPART (MultipartProperties)
+    multipart:
+      # Enable support of multi-part uploads.
+      enabled: true
+      # Intermediate temp location of uploaded files.
+      #location: "/tmp"
+      # Threshold after which files will be written to disk.
+      # Values can use the suffixed "MB" or "KB" to indicate a Megabyte or Kilobyte size.
+      file-size-threshold: 1MB
+      # Max file size. Values can use the suffixed "MB" or "KB" to indicate a Megabyte or Kilobyte size.
+      max-file-size: 10MB
+      # Max request size. Values can use the suffixed "MB" or "KB" to indicate a Megabyte or Kilobyte size.
+      # 针对该 multipart/form-data 请求的最大数量 50M
+      max-request-size: 50MB
+
+#  storage:
+#    serviceRequestUrl: http://storage.esudian.com:7001/uploadPic
+#    pic:
+#      type: "PNG/JPG"
+#      maxPicSize: 10M
+#    file:
+#      maxFileSize: 100M
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+api:
+  gateway:
+    url: "http://localhost:8788/api/"
+
+#swagger:
+#  basePackage: "com.esudian.shop"
+#  enabled: true
+#  groupName: "点餐平台商家后端API"
+#  title: "点餐平台商家后端API"
+#  description: "点餐平台商家后端接口文档"
+#  version: "v1"
+#  contactName: "admin"
+#  contactUrl: "http://localhost:8096"
+#  contactEmail: "316311403@qq.com"
+#
+#security:
+#  client:
+#      client-id: shopapp
+#      client-secret: dXNlci1hcHA=
+#      user-authorization-uri: "http://auth-server:9999/oauth/authorize"
+#      access-token-uri: "http://auth-server:9999/oauth/token"
+#  basic:
+#    enabled: false
+#  enabled: true
+#  ignored:
+#      - "/oauth/token/phone/*"
+#      - "/swagger-ui.html"
+#      - "/webjars/**"
+#      - "/swagger-resources/**"
+#      - "/configuration/**"
+#      - "/v2/**"
+#      - "/**/*.html"
+#      - "/**/*.css"
+#      - "/**/*.js"
+#      - "/oauth/token/refresh"
+#      - "/usr/login"
+#      - "/usr/refreshToken"
+
+global:
+  cache:
+    expire: 86400
+    database: 15
+    host: localhost
+    port: 6379
+    maxActive: 300
+    maxIdle: 100
+    maxWait: 1000
+
+
+#qrcode:
+#    size: 200
+#    base:
+#      url:
+#        path: "https://ord.dev.esudian.com/"
+#    logo:
+#      path: "logo/logo.jpg"
+
+#ftp相关配置
+FTP_ADDRESS: 120.79.143.237
+FTP_PORT: 21
+FTP_USERNAME: zhftp
+FTP_PASSWORD: 123456
+FTP_HEADIMGPATH: /head_img/
+FTP_VIDEOIMGPATH: /video_img/
+FTP_VIDEOFILEPATH: /video_file/
+#图片服务器相关配置
+IMAGE_BASE_URL: http://120.79.143.237
+#修改文件大小限制
+multipart:
+  enabled: true
+  max-file-size: 200mb
+  max-request-size: 200mb

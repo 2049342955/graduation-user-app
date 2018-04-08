@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: "graduation-user-app"
+  profiles:
+    active: local
+## 配置服务器
+#  cloud:
+#    config:
+#      uri: "http://config-server:9001/"
+#      failFast: true
+#      retry:
+#        initial-interval: 1000
+#        max-attempts: 10
